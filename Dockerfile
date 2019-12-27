@@ -11,7 +11,6 @@ RUN pip install --user pygsp
 RUN pip install --user gensim
 COPY . /workspace
 WORKDIR /workspace 
-ADD examples.py /
 EXPOSE 80
-CMD [ "python", "./examples.py" ]
+CMD python ./main.py
 
