@@ -19,7 +19,7 @@ def walklets(population, b, c):
     model = Walklets()
     model.fit(g)
     emb = model.get_embedding()
-    print(emb.shape)
+    return [emb.shape]
 
 
 #------------------------------------
@@ -29,7 +29,7 @@ def deepWalk(population, b, c):
     g = nx.newman_watts_strogatz_graph(population, b, c)
     model = DeepWalk()
     model.fit(g)
-    print(model.get_embedding())
+    return [model.get_embedding()]
 #------------------------------------
 # Splitter example
 #------------------------------------
@@ -38,7 +38,7 @@ def splitter(population, b, c):
     g = nx.newman_watts_strogatz_graph(population, b, c)
     model = EgoNetSplitter(1.0)
     model.fit(g)
-    print(model.get_memberships())
+    return [model.get_memberships()]
 
 #------------------------------------
 # Edmot example
@@ -47,7 +47,7 @@ def edmot(population, b, c):
     g = nx.newman_watts_strogatz_graph(population, b, c)
     model = EdMot(3, 0.5)
     model.fit(g)
-    print(model.get_memberships())
+    return [model.get_memberships()]
 #------------------------------------
 # DANMF example
 #------------------------------------
@@ -55,9 +55,8 @@ def danmf(population, b, c):
     g = nx.newman_watts_strogatz_graph(population, b, c)
     model = DANMF()
     model.fit(g)
-        
-    print(model.get_memberships())
     print(model.get_embedding())
+    return [model.get_memberships(), model.get_embedding()]
 
 #------------------------------------
 # M-NMF example
@@ -70,7 +69,7 @@ def mnmf(population, b, c):
     print(model.get_memberships())
     print(model.get_embedding())
     print(model.get_cluster_centers())
-
+    return [model.get_memberships(),model.get_embedding(),model.get_cluster_centers()]
 #------------------------------------
 # Label Propagation example
 #------------------------------------
@@ -80,7 +79,7 @@ def labelPropagation(population, b, c):
     model.fit(g)
 
     print(model.get_memberships())
-
+    return [model.get_memberships()]
 #------------------------------------
 # GraRep example
 #------------------------------------
@@ -91,7 +90,7 @@ def graRep(population, b, c):
     embedding = model.get_embedding()
 
     print(embedding)
-
+    return [embedding]
 #------------------------------------
 # GraphWave example
 #------------------------------------
@@ -102,7 +101,7 @@ def graphWave(population, b, c):
     embedding = model.get_embedding()
 
     print(embedding)
-
+    return [embedding]
 #------------------------------------
 # NNSED example
 #------------------------------------
@@ -116,6 +115,8 @@ def nnsed(population, b, c):
 
     memberships = model.get_memberships()
     print(memberships)
+    
+    return [embedding, memberships]
 
 def allFunc(population, b, c):
     result = dict()

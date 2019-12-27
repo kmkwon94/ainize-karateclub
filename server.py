@@ -11,17 +11,29 @@ class Request_handler(BaseHTTPRequestHandler):
         self.send_response(200)
         self.send_header('Content-type','text/html')
         self.end_headers()
+        
+        try:
+            query = str(urlparse(self.path).query)
+            query_components = dict(qc.split("=") for qc in query.split("&"))
+        except Exception as e:
+            return
 
-        query = urlparse(self.path).query
-        query_components = dict(qc.split("=") for qc in query.split("&"))
-        population_argument = query_components["population"]
-        second_argument = query_components["b"]
-        third_argument = query_components["c"]
+        population_argument = int(query_components["population"])
+        second_argument = int(query_components["b"])
+        third_argument = float(query_components["c"])
 
-        allFunc(population_argument, second_argument, third_argument)
+        # print(query_components)
 
-        self.wfile.write(bytes(message, "utf8"))
+        allFuncDic = dict()
+        allFuncDic = allFunc(population_argument, second_argument, third_argument)
+
+        for val in allFuncDic.values():
+            print(val)
+            # return val
+
+        self.wfile.write(bytes(str(allFuncDic), "utf8"))
         return
+
 
 class Server():
     def __init__(self):
@@ -29,5 +41,5 @@ class Server():
 
     def run(self):
         with socketserver.TCPServer(("", PORT), Request_handler) as httpd:
-            print("serving at port", PORT)
+            print("serving a port", PORT)
             httpd.serve_forever()
