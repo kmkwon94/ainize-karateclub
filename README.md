@@ -121,16 +121,16 @@ Firstpage server is dockerlized, so it can be buil and run using docker commands
 
 ## Docker build
 ```sh
-$ docker build -t [your name]/[your repo in docker] .
+$ docker build -t [your name]/[your docker repo] .
 ```
 ## Docker run
 ```sh
-$ docker run -p 80:80 -d [your name]/[your repo in docker]
+$ docker run -p 80:80 -d [your name]/[your docker repo]
 ```
 
 Now the server is available at http://localhost. To learn how to query the server, see the next section
 
-Note that the docker image can be deployed using any docker-based deploy platform [e.g] (https://ainize.ai/)
+Note that the docker image can be deployed using any docker-based deploy platform [e.g](https://ainize.ai/)
 
 # How to query
 ```
@@ -138,10 +138,10 @@ http://localhost/?population=[input integer number]&neighbors=[input integer num
 ```
 Note that 
 1. population is enough larger than neighbors e.g population = 100 , neighbors = 20 
-2. probability <= 1 
+2. probability less than or equal to 1 
 3. There are 10 methods walklets, deepWalk, splitter, edmot, danmf, mnmf, labelPropagation, graRep, graphWave, nnsed
 
-#References
+# References
 [Original code & paper](https://github.com/benedekrozemberczki/karateclub)
 
 
