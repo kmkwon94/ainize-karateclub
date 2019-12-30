@@ -130,7 +130,7 @@ $ docker run -p 80:80 -d [your name]/[your docker repo]
 
 Now the server is available at http://localhost. To learn how to query the server, see the next section
 
-Note that the docker image can be deployed using any docker-based deploy platform [e.g](https://ainize.ai/)
+Note that the docker image can be deployed using any docker-based deploy platform [ainize.ai](https://ainize.ai/)
 
 # How to query
 ```
