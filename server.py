@@ -2,7 +2,7 @@ import socketserver
 from http.server import BaseHTTPRequestHandler
 from urllib.parse import urlparse
 
-from examples2 import allFunc
+from examples import allFunc
 
 PORT = 80
 
@@ -19,19 +19,15 @@ class Request_handler(BaseHTTPRequestHandler):
             return
 
         population_argument = int(query_components["population"])
-        second_argument = int(query_components["b"])
-        third_argument = float(query_components["c"])
-
-        # print(query_components)
+        neighbors_argument = int(query_components["neighbors"])
+        probability_argument = float(query_components["probability"])
+        algorithm_argument = str(query_components["algorithm"])
 
         allFuncDic = dict()
-        allFuncDic = allFunc(population_argument, second_argument, third_argument)
+        allFuncDic = allFunc(population_argument, neighbors_argument, probability_argument)
 
-        #for val in allFuncDic.values():
-            #print(val)
-            # return val
 
-        self.wfile.write(bytes(str(allFuncDic), "utf8"))
+        self.wfile.write(bytes(str(allFuncDic[algorithm_argument]), "utf8"))
         return
 
 
