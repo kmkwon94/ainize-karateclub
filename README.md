@@ -119,11 +119,11 @@ The using each methods is done in the following steps:
 # How to deploy
 Firstpage server is dockerlized, so it can be buil and run using docker commands.
 
-##Docker build
+## Docker build
 ```sh
 $ docker build -t [your name]/[your repo in docker] .
 ```
-##Docker run
+## Docker run
 ```sh
 $ docker run -p 80:80 -d [your name]/[your repo in docker]
 ```
@@ -132,7 +132,7 @@ Now the server is available at http://localhost. To learn how to query the serve
 
 Note that the docker image can be deployed using any docker-based deploy platform [e.g] (https://ainize.ai/)
 
-#How to query
+# How to query
 ```
 http://localhost/?population=[input integer number]&neighbors=[input integer number]&probability=[input float number]&alogorithm=[input method] 
 ```
