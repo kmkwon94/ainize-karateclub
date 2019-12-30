@@ -27,8 +27,8 @@ class Request_handler(BaseHTTPRequestHandler):
         allFuncDic = dict()
         allFuncDic = allFunc(population_argument, second_argument, third_argument)
 
-        for val in allFuncDic.values():
-            print(val)
+        #for val in allFuncDic.values():
+            #print(val)
             # return val
 
         self.wfile.write(bytes(str(allFuncDic), "utf8"))
