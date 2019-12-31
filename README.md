@@ -108,7 +108,7 @@ $ pip install karateclub
 ```
 $ python examples.py
 ```
-# comcomai ainize first paper
+# comcomai ainize find nodes that has probability of joining neigbors
 
 This repository provides ten network methods 
 The using each methods is done in the following steps:
