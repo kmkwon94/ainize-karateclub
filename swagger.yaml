@@ -1,0 +1,43 @@
+openapi: 3.0.0
+
+info:
+  title: Find nodes that has probability of joining neighbors
+  version: 0.0.1
+
+servers:
+  - url: https://endpoint.ainize.ai/kmkwon94/ainize-node-join-neighbors/
+
+paths:
+  /:
+    get:
+      parameters:
+        - name: population
+          in: query
+          required: true
+          allowReserved: true
+        - name: neighbors
+          in: query
+          required: true
+          allowReserved: true
+        - name: probability
+          in: query
+          required: true
+          allowReserved: true
+        - name: algorithm
+          in: query
+          required: true
+          allowReserved: true
+
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                type: string
+                properties:
+                  result:
+                    type: string
+        "400":
+          description: Bad Request Error
+        default:
+          description: Unexpected Error
