@@ -1,3 +1,41 @@
+# Comcomai ainize 
+# Find nodes that has probability of joining neigbors
+
+This repository provides ten community detection methods 
+The using each methods is done in the following steps:
+1. User types the argument which is composed of population, neighbors, probability, algorithm
+2. User queries ainize server with the Num 1's arguments
+3. ainize-node-join-neighbors Ainized server return a dictionary.
+
+# How to deploy
+ainize-node-join-neighbors server is dockerlized, so it can be built and run using docker commands.
+
+## Docker build
+```sh
+$ docker build -t [your name]/[your docker repo] .
+```
+## Docker run
+```sh
+$ docker run -p 80:80 -d [your name]/[your docker repo]
+```
+
+Now the server is available at http://localhost. To learn how to query the server, see the next section
+
+Note that the docker image can be deployed using any docker-based deploy platform [ainize.ai](https://ainize.ai/)
+
+# How to query
+```
+http://localhost/?population=[input integer number]&neighbors=[input integer number]&probability=[input float number]&alogorithm=[input method] 
+```
+Note that 
+1. population is enough larger than neighbors e.g population = 100 , neighbors = 20 
+2. probability less than or equal to 1 
+3. There are 10 methods walklets, deepWalk, splitter, edmot, danmf, mnmf, labelPropagation, graRep, graphWave, nnsed
+4. In this paper, nnsed is superior method than other detection methods so I recommend using nnsed method first.
+# References
+[Original code & paper](https://github.com/benedekrozemberczki/karateclub)
+
+
 
  ![Version](https://badge.fury.io/py/karateclub.svg?style=plastic)
  ![GitHub stars](https://img.shields.io/github/stars/benedekrozemberczki/karateclub.svg?style=plastic) ![GitHub forks](https://img.shields.io/github/forks/benedekrozemberczki/karateclub.svg?color=blue&style=plastic) ![License](https://img.shields.io/github/license/benedekrozemberczki/karateclub.svg?color=blue&style=plastic)
@@ -108,43 +146,5 @@ $ pip install karateclub
 ```
 $ python examples.py
 ```
-# comcomai ainize 
-# find nodes that has probability of joining neigbors
-
-This repository provides ten network methods 
-The using each methods is done in the following steps:
-1. User types the argument which is composed of population, neighbors, probability, algorithm
-2. User queries ainize server with the Num 1's arguments
-3. Firstpage-test Ainized server return a dictionary.
-
-# How to deploy
-Firstpage server is dockerlized, so it can be buil and run using docker commands.
-
-## Docker build
-```sh
-$ docker build -t [your name]/[your docker repo] .
-```
-## Docker run
-```sh
-$ docker run -p 80:80 -d [your name]/[your docker repo]
-```
-
-Now the server is available at http://localhost. To learn how to query the server, see the next section
-
-Note that the docker image can be deployed using any docker-based deploy platform [ainize.ai](https://ainize.ai/)
-
-# How to query
-```
-http://localhost/?population=[input integer number]&neighbors=[input integer number]&probability=[input float number]&alogorithm=[input method] 
-```
-Note that 
-1. population is enough larger than neighbors e.g population = 100 , neighbors = 20 
-2. probability less than or equal to 1 
-3. There are 10 methods walklets, deepWalk, splitter, edmot, danmf, mnmf, labelPropagation, graRep, graphWave, nnsed
-
-# References
-[Original code & paper](https://github.com/benedekrozemberczki/karateclub)
-
-
   
 
