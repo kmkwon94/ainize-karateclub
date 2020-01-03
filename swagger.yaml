@@ -13,18 +13,22 @@ paths:
       parameters:
         - name: population
           in: query
+          default: 200
           required: true
           allowReserved: true
         - name: neighbors
           in: query
+          default: 20
           required: true
           allowReserved: true
         - name: probability
           in: query
+          default: 0.05
           required: true
           allowReserved: true
         - name: algorithm
           in: query
+          default: nnsed
           required: true
           allowReserved: true
 
