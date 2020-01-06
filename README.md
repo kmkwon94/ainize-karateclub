@@ -14,11 +14,11 @@ ainize-karateclub server is dockerlized, so it can be built and run using docker
 
 ## Docker build
 ```sh
-$ docker build -t [your name]/[your docker repo] .
+$ docker build -t [your dockerhub id]/[your docker repo] .
 ```
 ## Docker run
 ```sh
-$ docker run -p 80:80 -d [your name]/[your docker repo]
+$ docker run -p 80:80 -d [your dockerhub id]/[your docker repo]
 ```
 
 Now the server is available at http://localhost. To learn how to query the server, see the next section
