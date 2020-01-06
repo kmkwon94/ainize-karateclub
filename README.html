@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Comcomai ainize</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.css" integrity="sha384-yFRtMMDnQtDRO8rLpMIKrtPCD5jdktao2TV19YiZYWMDkUR5GQZR/NOVTdquEx1j" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+        <link href="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css" rel="stylesheet" type="text/css">
+        <style>
+.task-list-item { list-style-type: none; } .task-list-item-checkbox { margin-left: -20px; vertical-align: middle; }
+</style>
+        <style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        
+        <script src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script>
+    </head>
+    <body class="vscode-light">
+        <h1 id="comcomai-ainize">Comcomai ainize</h1>
+<h1 id="find-nodes-that-has-probability-of-joining-neigbors">Find nodes that has probability of joining neigbors</h1>
+<p>This repository provides ten community detection methods
+The using each methods is done in the following steps:</p>
+<ol>
+<li>User types the argument which is composed of population, neighbors, probability, algorithm</li>
+<li>User queries ainize server with the Num 1's arguments</li>
+<li>ainize-node-join-neighbors Ainized server return a dictionary.</li>
+</ol>
+<h1 id="how-to-deploy">How to deploy</h1>
+<p>ainize-node-join-neighbors server is dockerlized, so it can be built and run using docker commands.</p>
+<h2 id="docker-build">Docker build</h2>
+<pre><code class="language-sh"><div>$ docker build -t [your name]/[your docker repo] .
+</div></code></pre>
+<h2 id="docker-run">Docker run</h2>
+<pre><code class="language-sh"><div>$ docker run -p 80:80 -d [your name]/[your docker repo]
+</div></code></pre>
+<p>Now the server is available at <a href="http://localhost">http://localhost</a>. To learn how to query the server, see the next section</p>
+<p>Note that the docker image can be deployed using any docker-based deploy platform <a href="https://ainize.ai/">ainize.ai</a></p>
+<h1 id="how-to-query">How to query</h1>
+<pre><code><code><div>http://localhost/?population=[input integer number]&amp;neighbors=[input integer number]&amp;probability=[input float number]&amp;alogorithm=[input method] 
+</div></code></code></pre>
+<p>Note that</p>
+<ol>
+<li>population is enough larger than neighbors e.g population = 100 , neighbors = 20</li>
+<li>probability less than or equal to 1</li>
+<li>There are 10 methods walklets, deepWalk, splitter, edmot, danmf, mnmf, labelPropagation, graRep, graphWave, nnsed</li>
+<li>In this paper, nnsed is superior method than other detection methods so I recommend using nnsed method first.</li>
+</ol>
+<h1 id="references">References</h1>
+<p><a href="https://github.com/benedekrozemberczki/karateclub">Original code &amp; paper</a></p>
+<p><img src="https://badge.fury.io/py/karateclub.svg?style=plastic" alt="Version">
+<img src="https://img.shields.io/github/stars/benedekrozemberczki/karateclub.svg?style=plastic" alt="GitHub stars"> <img src="https://img.shields.io/github/forks/benedekrozemberczki/karateclub.svg?color=blue&amp;style=plastic" alt="GitHub forks"> <img src="https://img.shields.io/github/license/benedekrozemberczki/karateclub.svg?color=blue&amp;style=plastic" alt="License"></p>
+<p align="center">
+  <img width="90%" src="https://github.com/benedekrozemberczki/karateclub/blob/master/karatelogo.jpg?sanitize=true" />
+</p>
+<hr>
+<p><strong><a href="https://karateclub.readthedocs.io/">Documentation</a></strong> | <strong><a href="https://arxiv.org/abs/1802.03997">Paper</a></strong></p>
+<p><em>Karate Club</em> is an unsupervised machine learning extension library for <a href="https://networkx.github.io/">NetworkX</a>.</p>
+<p><em>Karate Club</em> consists of state-of-the-art methods to do unsupervised learning on graph structured data. To put it simply it is a Swiss Army knife for small-scale graph mining research. First, it provides network embedding techniques at the node and graph level. Second, it includes a variety of overlapping and non-overlapping commmunity detection methods. The package also includes methods that can deal with bipartite, temporal and heterogeneous graphs. Implemented methods cover a wide range of network science (<a href="https://netscisociety.net/home">NetSci</a>, <a href="https://complenet.weebly.com/">Complenet</a>), data mining (<a href="http://icdm2019.bigke.org/">ICDM</a>, <a href="http://www.cikm2019.net/">CIKM</a>, <a href="https://www.kdd.org/kdd2020/">KDD</a>), artificial intelligence (<a href="http://www.aaai.org/Conferences/conferences.php">AAAI</a>, <a href="https://www.ijcai.org/">IJCAI</a>) and machine learning (<a href="https://nips.cc/">NeurIPS</a>, <a href="https://icml.cc/">ICML</a>, <a href="https://iclr.cc/">ICLR</a>) conferences and pieces from prominent journals.</p>
+<hr>
+<p><strong>Citing</strong></p>
+<p>If you find <em>Karate Club</em> useful in your research, please consider citing the following paper:</p>
+<blockquote>
+<p>@misc{rozemberczki2020karateclub,<br>
+title = {Karate Club: A tool for unsupervised learning on graph structured data.},<br>
+author = {Benedek Rozemberczki and Rik Sarkar},<br>
+year = {2020}
+}</p>
+</blockquote>
+<hr>
+<p><strong>A simple example</strong></p>
+<p><em>Karate Club</em> makes the use of modern community detection tecniques quite easy (see <a href="link_here">here</a> for the accompanying tutorial).
+For example, this is all it takes to use on a Watts-Strogatz graph <a href="https://www.eecs.yorku.ca/course_archive/2017-18/F/6412/reading/kdd17p145.pdf">Ego-splitting</a>:</p>
+<pre><code class="language-python"><div><span class="hljs-keyword">import</span> networkx <span class="hljs-keyword">as</span> nx
+<span class="hljs-keyword">from</span> karateclub <span class="hljs-keyword">import</span> EgoNetSplitter
+
+g = nx.newman_watts_strogatz_graph(<span class="hljs-number">1000</span>, <span class="hljs-number">20</span>, <span class="hljs-number">0.05</span>)
+
+splitter = EgoNetSplitter(<span class="hljs-number">1.0</span>)
+
+splitter.fit(g)
+
+print(splitter.overlapping_partitions)
+</div></code></pre>
+<hr>
+<p><strong>Models included</strong></p>
+<p>In detail, the following methods are currently implemented.</p>
+<p><strong>Overlapping Community Detection</strong></p>
+<ul>
+<li>
+<p><strong><a href="https://karateclub.readthedocs.io/en/latest/modules/root.html#karateclub.community_detection.overlapping.danmf.DANMF">DANMF</a></strong> from Ye <em>et al.</em>: <a href="https://github.com/benedekrozemberczki/DANMF/blob/master/18DANMF.pdf">Deep Autoencoder-like Nonnegative Matrix Factorization for Community Detection</a> (CIKM 2018)</p>
+</li>
+<li>
+<p><strong><a href="https://karateclub.readthedocs.io/en/latest/modules/root.html#karateclub.community_detection.overlapping.mnmf.M_NMF">M-NMF</a></strong> from Wang <em>et al.</em>: <a href="https://aaai.org/ocs/index.php/AAAI/AAAI17/paper/view/14589">Community Preserving Network Embedding</a> (AAAI 2017)</p>
+</li>
+<li>
+<p><strong><a href="https://karateclub.readthedocs.io/en/latest/modules/root.html#karateclub.community_detection.overlapping.ego_splitter.EgoNetSplitter">Ego-Splitting</a></strong> from Epasto <em>et al.</em>: <a href="https://www.eecs.yorku.ca/course_archive/2017-18/F/6412/reading/kdd17p145.pdf">Ego-splitting Framework: from Non-Overlapping to Overlapping Clusters</a> (KDD 2017)</p>
+</li>
+<li>
+<p><strong><a href="https://karateclub.readthedocs.io/en/latest/modules/root.html#karateclub.community_detection.overlapping.nnsed.NNSED">NNSED</a></strong> from Sun <em>et al.</em>: <a href="http://www.bigdatalab.ac.cn/~shenhuawei/publications/2017/cikm-sun.pdf">A Non-negative Symmetric Encoder-Decoder Approach for Community Detection</a> (CIKM 2017)</p>
+</li>
+</ul>
+<p><strong>Non-Overlapping Community Detection</strong></p>
+<ul>
+<li>
+<p><strong><a href="https://karateclub.readthedocs.io/en/latest/modules/root.html#karateclub.community_detection.non_overlapping.edmot.EdMot">EdMot</a></strong> from Li <em>et al.</em>: <a href="https://arxiv.org/abs/1906.04560">EdMot: An Edge Enhancement Approach for Motif-aware Community Detection</a> (KDD 2019)</p>
+</li>
+<li>
+<p><strong><a href="https://karateclub.readthedocs.io/en/latest/modules/root.html#karateclub.community_detection.non_overlapping.label_propagation.LabelPropagation">Label Propagation</a></strong> from Raghavan <em>et al.</em>: <a href="https://arxiv.org/abs/0709.2938">Near Linear Time Algorithm to Detect Community Structures in Large-Scale Networks</a> (Physics Review E 2007)</p>
+</li>
+</ul>
+<p><strong>Neighbourhood-Based Node Level Embedding</strong></p>
+<ul>
+<li>
+<p><strong><a href="https://karateclub.readthedocs.io/en/latest/modules/root.html#karateclub.node_embedding.neighbourhood.walklets.Walklets">Walklets</a></strong> from Perozzi <em>et al.</em>: <a href="https://arxiv.org/abs/1605.02115">Don't Walk, Skip! Online Learning of Multi-scale Network Embeddings</a> (ASONAM 2017)</p>
+</li>
+<li>
+<p><strong><a href="https://karateclub.readthedocs.io/en/latest/modules/root.html#karateclub.node_embedding.neighbourhood.grarep.GraRep">GraRep</a></strong> from Cao <em>et al.</em>: <a href="https://dl.acm.org/citation.cfm?id=2806512">GraRep: Learning Graph Representations with Global Structural Information</a> (CIKM 2015)</p>
+</li>
+<li>
+<p><strong><a href="https://karateclub.readthedocs.io/en/latest/modules/root.html#karateclub.node_embedding.neighbourhood.deepwalk.DeepWalk">DeepWalk</a></strong> from Perozzi <em>et al.</em>: <a href="https://arxiv.org/abs/1403.6652">DeepWalk: Online Learning of Social Representations</a> (KDD 2014)</p>
+</li>
+</ul>
+<p><strong>Structural Node Level Embedding</strong></p>
+<ul>
+<li><strong><a href="https://karateclub.readthedocs.io/en/latest/modules/root.html#karateclub.node_embedding.structural.graphwave.GraphWave">GraphWave</a></strong> from Donnat <em>et al.</em>: <a href="https://arxiv.org/abs/1710.10321">Learning Structural Node Embeddings via Diffusion Wavelets</a> (KDD 2018)</li>
+</ul>
+<p><strong>Graph Level Embedding</strong></p>
+<p>Head over to our <a href="https://karateclub.readthedocs.io">documentation</a> to find out more about installation and data handling, a full list of implemented methods, and datasets.
+For a quick start, check out our <a href="https://github.com/benedekrozemberczki/karateclub/tree/master/examples.py">examples</a>.</p>
+<p>If you notice anything unexpected, please open an <a href="https://github.com/benedekrozemberczki/karateclub/issues">issue</a> and let us know.
+If you are missing a specific method, feel free to open a <a href="https://github.com/benedekrozemberczki/karateclub/issues">feature request</a>.
+We are motivated to constantly make Karate Club even better.</p>
+<hr>
+<p><strong>Installation</strong></p>
+<pre><code class="language-sh"><div>$ pip install karateclub
+</div></code></pre>
+<hr>
+<p><strong>Running examples</strong></p>
+<pre><code><code><div>$ python examples.py
+</div></code></code></pre>
+
+    </body>
+    </html>

@@ -23,6 +23,10 @@ Overlapping Community Detection
     :members:
     :undoc-members:
 
+.. automodule:: karateclub.community_detection.overlapping.bigclam
+    :members:
+    :undoc-members:
+
 Non-Overlapping Community Detection
 --------------------
 
@@ -54,3 +58,11 @@ Structural Node Embedding
 .. automodule:: karateclub.node_embedding.structural.graphwave
     :members:
     :undoc-members:
+
+Attributed Node Embedding
+--------------------
+.. automodule:: karateclub.node_embedding.attributed.bane
+    :members:
+    :undoc-members:
+
+

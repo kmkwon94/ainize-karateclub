@@ -2,10 +2,48 @@
 
 import networkx as nx
 
-from karateclub.community_detection.overlapping import EgoNetSplitter, NNSED, DANMF, MNMF
+import community
+import numpy as np
+
+from karateclub.community_detection.overlapping import EgoNetSplitter, NNSED, DANMF, MNMF, BigClam
 from karateclub.community_detection.non_overlapping import EdMot, LabelPropagation
 from karateclub.node_embedding.neighbourhood import GraRep, DeepWalk, Walklets
 from karateclub.node_embedding.structural import GraphWave
+from karateclub.node_embedding.attributed import BANE
+
+
+#-----------------------------------
+# BANE example
+#-----------------------------------
+
+g = nx.newman_watts_strogatz_graph(100, 20, 0.05)
+
+x = np.random.uniform(0,1,(100,2000))
+
+p  = nx.newman_watts_strogatz_graph(100, 20, 0.05)
+
+x = nx.adjacency_matrix(p)
+model = BANE()
+
+model.fit(g, x)
+
+quit()
+
+#------------------------------------
+# BigClam example
+#------------------------------------
+
+g = nx.newman_watts_strogatz_graph(100, 20, 0.05)
+
+model = BigClam()
+
+model.fit(g)
+
+membership = model.get_memberships()
+
+print(community.modularity(membership, g))
+
+quit()
 
 #population = int(input("input population which is bigger than b "))
 #neighbors = int(input("input number which is lower than population ")), each node is joined with 'b' nearest neighbors in a ring topology
@@ -14,6 +52,7 @@ from karateclub.node_embedding.structural import GraphWave
 #------------------------------------
 # Walklets example
 #------------------------------------
+<<<<<<< HEAD
 def walklets(population, neighbors, probability):
     g = nx.newman_watts_strogatz_graph(population, neighbors, probability)
     model = Walklets()
@@ -21,6 +60,21 @@ def walklets(population, neighbors, probability):
     emb = model.get_embedding()
     #print(emb.shape)
     return [emb.shape]
+=======
+
+
+
+g = nx.newman_watts_strogatz_graph(100, 20, 0.05)
+
+
+model = Walklets()
+
+model.fit(g)
+
+emb = model.get_embedding()
+
+print(emb.shape)
+>>>>>>> 141985e8c728d266b853c77fd6b0ee6b282776ae
 
 
 #------------------------------------

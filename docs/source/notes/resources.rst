@@ -12,6 +12,8 @@ Overlapping Community Detection
 
 * Bing-Jie Sun, Huawei Shen, Jinhua Gao, Wentao Ouyang, Xueqi Cheng: **A Non-negative Symmetric Encoder-Decoder Approach for Community Detection** `Paper <http://www.bigdatalab.ac.cn/~shenhuawei/publications/2017/cikm-sun.pdf>`_
 
+* Jaewon Yang and Jure Leskovec: **Overlapping Community Detection at Scale: A Nonnegative Matrix Factorization Approach** `Paper <http://infolab.stanford.edu/~crucis/pubs/paper-nmfagm.pdf>`_, `Slides <http://snap.stanford.edu/class/cs224w-2017/slides/18-overlapping.pdf>`_, `Video <https://www.youtube.com/watch?v=Y78Kugdq24I>`_, `Video <https://www.youtube.com/watch?v=cuDDBfvK71g>`_
+
 Non-Overlapping Community Detection
 --------------------
 
@@ -31,7 +33,13 @@ Neighbourhood-Based Node Embedding
 Structural Node Embedding
 --------------------
 
-* Claire Donnat, Marinka Zitnik, David Hallac, Jure Leskovec: **GraRep: Learning Graph Representations with Global Structural Information** `Paper <https://arxiv.org/abs/1710.10321>`_, `Video <https://www.youtube.com/watch?v=S4QZiUPJkRI>`_
+* Claire Donnat, Marinka Zitnik, David Hallac, Jure Leskovec: **Learning Structural Node Embeddings Via Diffusion Wavelets** `Paper <https://arxiv.org/abs/1710.10321>`_, `Video <https://www.youtube.com/watch?v=S4QZiUPJkRI>`_
+
+
+Attributed Node Embedding
+--------------------
+
+*  Hong Yang, Shirui Pan, Peng Zhang, Ling Chen, Defu Lian, Chengqi Zhang: **Binarized Attributed Network Embedding** `Paper <https://ieeexplore.ieee.org/document/8626170>`_
 
 Whole Graph Embedding
 --------------------
