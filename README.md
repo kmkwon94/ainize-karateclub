@@ -1,16 +1,16 @@
 [![Run on Ainize](https://ainize.ai/static/images/run_on_ainize_button.svg)](https://ainize.web.app/redirect?git_repo=github.com/kmkwon94/ainize-karateclub)
 
-# Comcomai ainize 
-# Find nodes that has probability of joining neigbors
+# Ainize karateclub
+# Find nodes that has probability of joining neigbors (Community Detection)
 
 This repository provides ten community detection methods 
 The using each methods is done in the following steps:
 1. User types the argument which is composed of population, neighbors, probability, algorithm
-2. User queries ainize server with the Num 1's arguments
-3. ainize-node-join-neighbors Ainized server return a dictionary.
+2. User queries ainize server with previous step's arguments
+3. ainize-karateclub which is ainized server returns a dictionary.
 
 # How to deploy
-ainize-node-join-neighbors server is dockerlized, so it can be built and run using docker commands.
+ainize-karateclub server is dockerlized, so it can be built and run using docker commands.
 
 ## Docker build
 ```sh
