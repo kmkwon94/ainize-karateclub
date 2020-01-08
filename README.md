@@ -1,16 +1,17 @@
 [![Run on Ainize](https://ainize.ai/static/images/run_on_ainize_button.svg)](https://ainize.web.app/redirect?git_repo=github.com/kmkwon94/ainize-karateclub)
 
-# Ainize karateclub
+# Ainized karateclub
 # Find nodes that has probability of joining neigbors (Community Detection)
 
 This repository provides ten community detection methods 
 The using each methods is done in the following steps:
 1. User types the argument which is composed of population, neighbors, probability, algorithm
-2. User queries ainize server with previous step's arguments
-3. ainize-karateclub which is ainized server returns a dictionary.
+2. User queries ainized server with previous step's arguments
+3. ainized-karateclub which is ainized
+4.  server returns a dictionary.
 
 # How to deploy
-ainize-karateclub server is dockerlized, so it can be built and run using docker commands.
+ainized-karateclub server is dockerlized, so it can be built and run using docker commands.
 
 ## Docker build
 ```sh
@@ -34,6 +35,22 @@ Note that
 2. probability less than or equal to 1 
 3. There are 10 methods walklets, deepWalk, splitter, edmot, danmf, mnmf, labelPropagation, graRep, graphWave, nnsed
 4. In this paper, nnsed is superior method than other detection methods so I recommend using nnsed method first.
+
+# How to run on ainize
+1. Click Run on ainize 
+   
+    ![RunonAinize](./img/runonainize.png)
+2. Click default
+
+    <img src="./img/clickdefault.png" width="700" height="400">
+3. Click Try it out and input the default value. Finally click execute
+
+    <img src="./img/tryitout.png" width ="700" height="400">
+    <img src="./img/execute.png" width="700" height="400">
+4. Result
+
+    <img src="./img/result.png" width="650" height="400">
+
 # References
 [Original code & paper](https://github.com/benedekrozemberczki/karateclub)
 

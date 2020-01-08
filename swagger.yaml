@@ -5,8 +5,7 @@ info:
   version: 0.0.1
 
 servers:
-  - url: https://endpoint.ainize.ai/kmkwon94/ainize-karateclub/
-
+  - url: https://endpoint.ainize.ai/kmkwon94/ainized-karateclub/
 paths:
   /:
     get:
