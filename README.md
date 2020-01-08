@@ -1,4 +1,4 @@
-[![Run on Ainize](https://ainize.ai/static/images/run_on_ainize_button.svg)](https://ainize.web.app/redirect?git_repo=github.com/kmkwon94/ainize-karateclub)
+[![Run on Ainize](https://ainize.ai/static/images/run_on_ainize_button.svg)](https://ainize.web.app/redirect?git_repo=github.com/kmkwon94/ainized-karateclub)
 
 # Ainized karateclub
 # Find nodes that has probability of joining neigbors (Community Detection)
@@ -39,7 +39,7 @@ Note that
 # How to run on ainize
 1. Click Run on ainize 
    
-    ![RunonAinize](./img/runonainize.png)
+    [![RunonAinize](./img/runonainize.png)](https://ainize.web.app/redirect?git_repo=github.com/kmkwon94/ainized-karateclub)
 2. Click default
 
     <img src="./img/clickdefault.png" width="700" height="400">
